@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -73,6 +74,7 @@ function App() {
 
   return (
     <div>
+      <SpeedInsights />
       {/* Navbar */}
       <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
         <div className="container nav-content">
@@ -432,7 +434,8 @@ function App() {
       <section id="location" className="section">
         <div className="container location-content">
           <div data-aos="fade-right">
-            <img className="shopimage"
+            <img
+              className="shopimage"
               src="https://images.unsplash.com/photo-1533292362155-d79af6b08b77?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGxvY2F0aW9ufGVufDB8fDB8fHww"
               alt="location"
             />
