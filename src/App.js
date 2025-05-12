@@ -79,7 +79,12 @@ function App() {
       <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
         <div className="container nav-content">
           <div className="logo">
-            <img className="logo" src="assets\logo.png" alt="PMC Barbershop" />
+            <img
+              className="logo"
+              src="assets/logo.png"
+              alt="PMC Barbershop"
+              loading="lazy"
+            />
           </div>
           <div className={`nav-links ${menuOpen ? "active" : ""}`}>
             <Link to="/#home">Home</Link>
@@ -143,7 +148,12 @@ function App() {
             </div>
           </div>
           <div className="hero-image" data-aos="fade-left">
-            <img className="shopimage" src="assets\bb.jpg" alt="Barbershop" />
+            <img
+              className="shopimage"
+              src="assets/bb.jpg"
+              alt="Barbershop"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
@@ -152,7 +162,12 @@ function App() {
       <section id="about" className="section">
         <div className="container about-content">
           <div className="about-image" data-aos="fade-right">
-            <img className="shopimage" src="assets\bb1.jpg" alt="Barbershop" />
+            <img
+              className="shopimage"
+              src="assets/bb1.jpg"
+              alt="Barbershop"
+              loading="lazy"
+            />
           </div>
           <div className="about-text" data-aos="fade-left">
             <h2>
@@ -377,7 +392,12 @@ function App() {
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
               >
-                <img className="gallaryimage" src={_.image} alt={`${_.name}`} />
+                <img
+                  className="gallaryimage"
+                  src={_.image}
+                  alt={`Gallery ${index + 1}`}
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
@@ -420,6 +440,7 @@ function App() {
                     className="teamimage"
                     src={member.image}
                     alt={`${member.name}`}
+                    loading="lazy"
                   />
                 </div>
                 <h3>{member.name}</h3>
@@ -438,6 +459,7 @@ function App() {
               className="shopimage"
               src="https://images.unsplash.com/photo-1533292362155-d79af6b08b77?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGxvY2F0aW9ufGVufDB8fDB8fHww"
               alt="location"
+              loading="lazy"
             />
           </div>
           <div className="location-info" data-aos="fade-left">
@@ -554,7 +576,6 @@ function App() {
             <Link to="/#contact" className="btn-secondary">
               Book an Appointment
             </Link>
-            &nbsp;
             <Link to="/#services" className="btn-secondary">
               View Services
             </Link>
