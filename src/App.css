@@ -49,7 +49,7 @@ body {
 .logo {
   height: 60px;
   width: auto;
-  max-width: 100%; /* Ensure logo scales on smaller screens */
+  max-width: 100%;
 }
 
 .container {
@@ -75,11 +75,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px 0;
 }
 
 .navbar .logo {
   font-family: 'Playfair Display', serif;
-  font-size: 24px;
+  font-size: clamp(20px, 3vw, 24px);
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -87,7 +88,7 @@ body {
 
 .navbar .nav-links {
   display: none;
-  gap: 24px;
+  gap: clamp(16px, 2vw, 24px);
 }
 
 .navbar .nav-links.active {
@@ -98,8 +99,9 @@ body {
   left: 0;
   width: 100%;
   background-color: var(--nav-links-bg);
-  padding: 16px;
+  padding: clamp(12px, 3vw, 16px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 40; /* Ensure dropdown is below navbar but above other content */
 }
 
 .navbar .nav-links a {
@@ -108,6 +110,7 @@ body {
   color: var(--text-color);
   text-decoration: none;
   transition: color 0.3s ease;
+  font-size: clamp(14px, 2vw, 16px);
 }
 
 .navbar .nav-links a:hover {
@@ -117,13 +120,15 @@ body {
 .navbar .contact-info {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: clamp(8px, 1.5vw, 16px);
+  flex-wrap: wrap;
 }
 
 .navbar .contact-info span {
   display: none;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
+  font-size: clamp(12px, 1.5vw, 14px);
 }
 
 .navbar .hamburger {
@@ -141,7 +146,7 @@ body {
   cursor: pointer;
   display: flex;
   align-items: center;
-  margin-left: 16px;
+  margin-left: clamp(8px, 1vw, 16px);
 }
 
 .navbar .theme-toggle svg {
@@ -160,7 +165,7 @@ body {
 .btn-primary {
   background: linear-gradient(135deg, var(--accent-color), #b58900);
   color: var(--cta-text);
-  padding: 12px 24px;
+  padding: clamp(8px, 1.5vw, 12px) clamp(16px, 2vw, 24px);
   border-radius: 5px;
   border: 2px solid var(--accent-color);
   font-family: 'Montserrat', sans-serif;
@@ -168,6 +173,7 @@ body {
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  font-size: clamp(12px, 1.5vw, 14px);
 }
 
 .btn-primary:hover {
@@ -179,13 +185,14 @@ body {
 .btn-secondary {
   border: 2px solid var(--accent-color);
   color: var(--accent-color);
-  padding: 10px 22px;
+  padding: clamp(6px, 1.5vw, 10px) clamp(14px, 2vw, 22px);
   border-radius: 5px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
   background-color: transparent;
+  font-size: clamp(12px, 1.5vw, 14px);
 }
 
 .btn-secondary:hover {
@@ -198,9 +205,11 @@ body {
   min-height: 80vh;
   display: flex;
   align-items: center;
-  padding: 48px 0;
+  /* Adjusted padding to account for navbar height */
+  padding: clamp(80px, 10vw, 100px) 0 clamp(24px, 5vw, 48px) 0;
   position: relative;
   overflow: hidden;
+  z-index: 1; /* Ensure hero section is below navbar */
 }
 
 .hero-section::before {
@@ -220,12 +229,18 @@ body {
 .hero-content {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: clamp(16px, 3vw, 32px);
+  width: 100%;
 }
 
-.hero-text h3 {
+.hero-text {
+  width: 100%;
+  z-index: 2; /* Ensure text is above background but below navbar */
+}
+
+.hero-text h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 16px;
+  font-size: clamp(12px, 2vw, 16px);
   text-transform: uppercase;
   color: var(--secondary-text-color);
   margin-bottom: 8px;
@@ -234,7 +249,7 @@ body {
 
 .hero-text h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(24px, 5vw, 48px); /* Scales dynamically between 24px and 48px */
+  font-size: clamp(20px, 5vw, 48px);
   font-weight: 700;
   margin-bottom: 16px;
   line-height: 1.2;
@@ -252,12 +267,12 @@ body {
   margin-bottom: 24px;
   max-width: 500px;
   line-height: 1.6;
-  font-size: clamp(14px, 2vw, 16px); /* Scales between 14px and 16px */
+  font-size: clamp(12px, 1.8vw, 16px);
 }
 
 .hero-text .buttons {
   display: flex;
-  gap: 16px;
+  gap: clamp(8px, 1.5vw, 16px);
 }
 
 .location {
@@ -266,6 +281,7 @@ body {
   gap: 8px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
+  font-size: clamp(12px, 1.5vw, 14px);
 }
 
 .location svg {
@@ -274,10 +290,15 @@ body {
   color: var(--accent-color);
 }
 
+.hero-image {
+  width: 100%;
+  z-index: 2; /* Ensure image is above background but below navbar */
+}
+
 .shopimage {
   max-width: 100%;
   height: auto;
-  aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+  aspect-ratio: 16 / 9;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -287,16 +308,16 @@ body {
 }
 
 .section {
-  padding: clamp(40px, 8vw, 80px) 0; /* Dynamic padding between 40px and 80px */
+  padding: clamp(40px, 8vw, 80px) 0;
   position: relative;
 }
 
 .section h2 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(24px, 4vw, 32px); /* Scales between 24px and 32px */
+  font-size: clamp(24px, 4vw, 32px);
   font-weight: 700;
   text-align: center;
-  margin-bottom: clamp(24px, 5vw, 48px); /* Scales between 24px and 48px */
+  margin-bottom: clamp(24px, 5vw, 48px);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -512,7 +533,7 @@ body {
 .gallaryimage {
   max-width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3; /* Maintain aspect ratio */
+  aspect-ratio: 4 / 3;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -539,7 +560,7 @@ body {
   max-width: 192px;
   width: 100%;
   height: auto;
-  aspect-ratio: 1 / 1; /* Maintain circular shape */
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   margin: 0 auto 16px;
   display: flex;
@@ -780,7 +801,7 @@ body {
 }
 
 /* Responsive Design */
-@media (min-width: 1024px) {
+@media (min-width: 900px) {
   .navbar .nav-links,
   .navbar .contact-info span {
     display: flex;
@@ -790,19 +811,18 @@ body {
   }
   .hero-section {
     min-height: 80vh;
+    padding-top: clamp(80px, 10vw, 100px); /* Ensure space for navbar */
   }
-  .hero-content,
-  .about-content,
-  .location-content {
+  .hero-content {
     flex-direction: row;
+    align-items: center;
   }
   .hero-text,
-  .hero-image,
-  .about-text,
-  .about-image,
-  .location-info,
-  .map-placeholder {
+  .hero-image {
     width: 50%;
+  }
+  .hero-text .buttons {
+    flex-direction: row;
   }
   .services-grid,
   .why-choose-grid,
@@ -828,10 +848,12 @@ body {
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-  .navbar .nav-links,
-  .navbar .contact-info span {
+@media (min-width: 768px) and (max-width: 899px) {
+  .navbar .nav-links {
     display: none;
+  }
+  .navbar .contact-info span {
+    display: flex;
   }
   .navbar .hamburger {
     display: block;
@@ -840,20 +862,21 @@ body {
     display: flex;
   }
   .hero-section {
-    min-height: 70vh; /* Slightly smaller for tablets */
+    min-height: 70vh;
+    padding-top: clamp(70px, 8vw, 90px); /* Adjusted for navbar height */
   }
-  .hero-content,
-  .about-content,
-  .location-content {
+  .hero-content {
     flex-direction: column;
   }
   .hero-text,
-  .hero-image,
-  .about-text,
-  .about-image,
-  .location-info,
-  .map-placeholder {
+  .hero-image {
     width: 100%;
+  }
+  .hero-text .buttons {
+    flex-direction: row;
+  }
+  .shopimage {
+    aspect-ratio: 4 / 3;
   }
   .services-grid,
   .why-choose-grid,
@@ -885,30 +908,33 @@ body {
   }
   .navbar .contact-info {
     gap: 8px;
+    justify-content: flex-end;
   }
   .navbar .theme-toggle {
     margin-left: 8px;
   }
   .hero-section {
-    min-height: 60vh; /* Smaller height for mobile */
-    padding: 32px 0; /* Reduced padding */
+    min-height: 50vh;
+    padding-top: clamp(60px, 15vw, 80px); /* Adjusted for navbar height */
+    padding-bottom: clamp(16px, 3vw, 24px);
   }
-  .hero-content,
-  .about-content,
-  .location-content {
+  .hero-content {
     flex-direction: column;
+    gap: 16px;
   }
   .hero-text,
-  .hero-image,
-  .about-text,
-  .about-image,
-  .location-info,
-  .map-placeholder {
+  .hero-image {
     width: 100%;
+  }
+  .hero-text h1 {
+    font-size: clamp(18px, 5vw, 28px);
   }
   .hero-text .buttons {
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
+  }
+  .shopimage {
+    aspect-ratio: 3 / 2;
   }
   .services-grid,
   .why-choose-grid,
@@ -933,13 +959,31 @@ body {
   }
 }
 
-/* Additional Breakpoint for Larger Tablets (e.g., iPad in portrait) */
-@media (min-width: 900px) and (max-width: 1023px) {
-  .navbar .nav-links,
-  .navbar .contact-info span {
-    display: flex;
+@media (max-width: 359px) {
+  .navbar .nav-content {
+    padding: 8px 0;
   }
-  .navbar .hamburger {
-    display: none;
+  .navbar .contact-info {
+    gap: 4px;
+  }
+  .navbar .theme-toggle {
+    margin-left: 4px;
+  }
+  .navbar .nav-links a {
+    font-size: 14px;
+  }
+  .hero-section {
+    padding-top: 60px; /* Minimum padding for very small screens */
+  }
+  .hero-text h1 {
+    font-size: 20px;
+  }
+  .hero-text p {
+    font-size: 12px;
+  }
+  .btn-primary,
+  .btn-secondary {
+    font-size: 12px;
+    padding: 8px 16px;
   }
 }

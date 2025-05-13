@@ -82,7 +82,7 @@ function App() {
             <img
               className="logo"
               src="assets/logo.png"
-              alt="PMC Barbershop"
+              alt="PMC Barbershop Logo"
               loading="lazy"
             />
           </div>
@@ -122,7 +122,7 @@ function App() {
       <section id="home" className="hero-section">
         <div className="container hero-content">
           <div className="hero-text" data-aos="fade-right">
-            <h3>Premium Barber Services in Denton</h3>
+            <h2>Premium Barber Services in Denton</h2>
             <h1>
               Classic Cuts, <span>Modern</span> Style
             </h1>
@@ -151,7 +151,7 @@ function App() {
             <img
               className="shopimage"
               src="assets/bb.jpg"
-              alt="Barbershop"
+              alt="PMC Barbershop Interior"
               loading="lazy"
             />
           </div>
